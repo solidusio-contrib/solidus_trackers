@@ -5,18 +5,18 @@ require 'solidus_tracker/version'
 Gem::Specification.new do |s|
   s.name        = 'solidus_tracker'
   s.version     = SolidusTracker::VERSION
-  s.summary     = 'TODO'
-  s.description = 'TODO'
+  s.summary     = 'Provides analytic trackers for solidus'
+  s.description = 'Breaking out trackers from solidus core'
   s.license     = 'BSD-3-Clause'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
-  # s.homepage  = 'http://www.example.com'
+  s.author    = 'Mike Conlin'
+  s.email     = 'mike@stembolt.com'
+  s.homepage  = 'https://github.com/swively'
 
   s.files = Dir["{app,config,db,lib}/**/*", 'LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'solidus_core', '~> 1.0'
+  s.add_dependency 'solidus_core', ['>= 2.1.0.alpha', '< 3']
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'poltergeist'
