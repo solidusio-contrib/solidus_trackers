@@ -30,6 +30,8 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 
+require 'cancan/matchers'
+
 # Requires factories defined in lib/solidus_tracker/factories.rb
 require 'solidus_tracker/factories'
 
