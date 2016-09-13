@@ -1,9 +1,9 @@
 # encoding: UTF-8
 $:.push File.expand_path('../lib', __FILE__)
-require 'solidus_tracker/version'
+require 'solidus_trackers/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'solidus_tracker'
+  s.name        = 'solidus_trackers'
   s.version     = SolidusTracker::VERSION
   s.summary     = 'Provides analytic trackers for solidus'
   s.description = 'Breaking out trackers from solidus core'

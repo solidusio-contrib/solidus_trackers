@@ -2,7 +2,7 @@ module SolidusTracker
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'solidus_tracker'
+    engine_name 'solidus_trackers'
 
     # use rspec for tests
     config.generators do |g|

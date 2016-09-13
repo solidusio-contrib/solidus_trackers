@@ -1,4 +1,4 @@
-SolidusTracker
+SolidusTrackers
 ==============
 
 Introduction goes here.
@@ -6,17 +6,17 @@ Introduction goes here.
 Installation
 ------------
 
-Add solidus_tracker to your Gemfile:
+Add solidus_trackers to your Gemfile:
 
 ```ruby
-gem 'solidus_tracker'
+gem 'solidus_trackers'
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g solidus_tracker:install
+bundle exec rails g solidus_trackers:install
 ```
 
 Testing
@@ -33,8 +33,8 @@ When testing your applications integration with this extension you may use it's 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'solidus_tracker/factories'
+require 'solidus_trackers/factories'
 ```
 
 Copyright (c) 2016 [name of extension creator], released under the New BSD License
-# solidus_tracker
+# solidus_trackers

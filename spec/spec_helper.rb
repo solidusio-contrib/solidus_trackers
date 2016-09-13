@@ -32,8 +32,8 @@ require 'spree/testing_support/url_helpers'
 
 require 'cancan/matchers'
 
-# Requires factories defined in lib/solidus_tracker/factories.rb
-require 'solidus_tracker/factories'
+# Requires factories defined in lib/solidus_trackers/factories.rb
+require 'solidus_trackers/factories'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
