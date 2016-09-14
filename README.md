@@ -1,7 +1,10 @@
-SolidusTrackers
+Solidus Trackers
 ==============
 
-Introduction goes here.
+[![Build Status](https://travis-ci.org/solidusio-contrib/solidus_trackers.svg?branch=master)](https://travis-ci.org/solidusio-contrib/solidus_trackers)
+
+Tracker implementation for Solidus.
+- Allows creation of trackers from the admin configuration panel
 
 Installation
 ------------
@@ -35,6 +38,3 @@ Simply add this require statement to your spec_helper:
 ```ruby
 require 'solidus_trackers/factories'
 ```
-
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
-# solidus_trackers
