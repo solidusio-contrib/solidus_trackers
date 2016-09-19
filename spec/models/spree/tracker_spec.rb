@@ -4,7 +4,6 @@ RSpec.describe Spree::Tracker, type: :model do
   let!(:tracker) { create(:tracker) }
 
   describe "current" do
-
     it "returns the first active tracker" do
       expect(Spree::Tracker.current).to eq(tracker)
     end
@@ -18,6 +17,5 @@ RSpec.describe Spree::Tracker, type: :model do
       tracker.update_attribute(:active, false)
       expect(Spree::Tracker.current).to be_nil
     end
-
   end
 end
