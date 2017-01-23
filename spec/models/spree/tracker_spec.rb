@@ -7,6 +7,10 @@ RSpec.describe Spree::Tracker, type: :model do
   let!(:other_tracker) { create(:tracker, store: other_store) }
 
   describe "current" do
+    it "returns nil if no store passed in argument" do
+      expect(Spree::Tracker.current).to eq(nil)
+    end
+
     it "returns the first active tracker" do
       expect(Spree::Tracker.current(store)).to eq(tracker)
     end
