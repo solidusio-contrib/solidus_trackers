@@ -3,7 +3,7 @@ Solidus Trackers
 
 [![Build Status](https://travis-ci.org/solidusio-contrib/solidus_trackers.svg?branch=master)](https://travis-ci.org/solidusio-contrib/solidus_trackers)
 
-Tracker implementation for Solidus.
+A simple tracker implementation for Solidus.
 - Allows creation of trackers from the admin configuration panel
 
 Installation
@@ -21,6 +21,12 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g solidus_trackers:install
 ```
+
+Usage
+-------
+
+Tracking requirements vary greatly between projects; it is difficult to provide an analytics extension that suits the specific needs of everyone.
+This extension provides a baseline implementation, however, you are encouraged to find a more robust tracking solution for your project.
 
 Testing
 -------
