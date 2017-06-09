@@ -4,7 +4,11 @@ branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
 gem 'solidus', github: 'solidusio/solidus', branch: branch
 
 gem 'rails-controller-testing', group: :test
-gem 'rails', '~> 5.0.0' # HACK: broken bundler dependency resolution
+if branch == 'master' || branch >= "v2.3"
+  gem 'rails', '~> 5.1.0' # hack for broken bundler dependency resolution
+elsif branch >= "v2.0"
+  gem 'rails', '~> 5.0.0' # hack for broken bundler dependency resolution
+end
 gem 'pg'
 gem 'mysql2'
 
