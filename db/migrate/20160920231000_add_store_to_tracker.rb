@@ -1,4 +1,4 @@
-class AddStoreToTracker < ActiveRecord::Migration
+class AddStoreToTracker < SolidusSupport::Migration[4.2]
   def self.up
     if data_source_exists?('spree_trackers')
       change_table :spree_trackers do |t|
