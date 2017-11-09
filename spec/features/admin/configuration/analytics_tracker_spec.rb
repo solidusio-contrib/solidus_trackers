@@ -50,4 +50,13 @@ describe "Analytics Tracker", type: :feature do
       end
     end
   end
+
+  context "store" do
+    it "should display the script tag if a tracking id is provided" do
+      create(:tracker, store: store)
+
+      visit spree.root_path
+      expect(page).to have_css('#solidus_trackers', visible: false)
+    end
+  end
 end
