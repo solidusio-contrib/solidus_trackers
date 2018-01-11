@@ -9,7 +9,7 @@ if branch == 'master' || branch >= "v2.3"
 elsif branch >= "v2.0"
   gem 'rails', '~> 5.0.0' # HACK: broken bundler dependency resolution
 end
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem 'mysql2'
 
 # Provides basic authentication functionality for testing parts of your engine
