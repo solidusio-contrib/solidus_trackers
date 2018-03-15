@@ -1,30 +1,33 @@
 source 'https://rubygems.org'
 
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
+
 branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
 gem 'solidus', github: 'solidusio/solidus', branch: branch
+gem 'solidus_auth_devise', '~> 1.0'
+
+if branch == 'master' || branch >= 'v2.3'
+  gem 'rails', '~> 5.1.4'
+elsif branch >= 'v2.0'
+  gem 'rails', '~> 5.0.6'
+end
+
+gem 'mysql2', '~> 0.4.10'
+gem 'pg', '~> 0.21'
+gem 'sqlite3'
 
 group :test do
-  gem 'rails-controller-testing'
-  if branch < "v2.5"
-    gem 'factory_bot', '4.10.0'
+  if branch == 'master' || branch >= 'v2.0'
+    gem 'rails-controller-testing'
   else
-    gem 'factory_bot', '> 4.10.0'
+    gem 'rails_test_params_backport'
   end
 end
 
-if branch == 'master' || branch >= "v2.3"
-  gem 'rails', '~> 5.1.0' # HACK: broken bundler dependency resolution
-elsif branch >= "v2.0"
-  gem 'rails', '~> 5.0.0' # HACK: broken bundler dependency resolution
+group :development, :test do
+  gem 'i18n-tasks', '~> 0.9' if branch == 'master'
+  gem 'byebug'
+  gem 'pry-rails'
 end
-
-if ENV['DB'] == 'mysql'
-  gem 'mysql2', '~> 0.4.10'
-else
-  gem 'pg', '~> 0.21'
-end
-
-# Provides basic authentication functionality for testing parts of your engine
-gem 'solidus_auth_devise', '~> 1.0'
 
 gemspec
