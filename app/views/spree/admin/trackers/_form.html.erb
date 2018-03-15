@@ -1,31 +1,39 @@
 <div class="container">
   <div data-hook="admin_tracker_form_fields" class="row">
-    <div class="col-md-3">
+    <div class="col-3">
       <div data-hook="analytics_id" class="field">
         <%= f.label :analytics_id %>
-        <%= f.text_field :analytics_id, :class => 'fullwidth' %>
+        <%= f.text_field :analytics_id, class: "fullwidth" %>
       </div>
     </div>
-    <div class="col-md-3">
+
+     <div class="col-3">
+      <div data-hook="tracker_type" class="field">
+        <%= f.label :tacker_type %>
+        <%= select_tag :tracker_type, options_for_select(tracker_types, @tracker.tracker_type), include_blank: true, class: "select2 fullwidth", id: "tracker_tracker_type", name: "tracker[tracker_type]" %>
+      </div>
+    </div>
+
+    <div class="col-2">
       <div data-hook="active" class="field">
         <%= f.label :active %>
         <ul>
           <li>
             <%= radio_button(:tracker, :active, true) %>
-            <%= label_tag :tracker_active_true, I18n.t('spree.say_yes') %>
+            <%= label_tag :tracker_active_true, t('spree.say_yes') %>
           </li>
           <li>
             <%= radio_button(:tracker, :active, false) %>
-            <%= label_tag :tracker_active_false, I18n.t('spree.say_no') %>
+            <%= label_tag :tracker_active_false, t('spree.say_no') %>
           </li>
         </ul>
       </div>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-3">
       <div data-hook="store_select" class="field">
         <%= f.label :store %>
-        <div class="clear"></div>
-        <%= collection_select(:tracker, :store_id, Spree::Store.all, :id, :name, {}) %>
+        <%= select_tag :store_id, options_from_collection_for_select(Spree::Store.all, :id, :name, @tracker.store_id), include_blank: true, class: "select2 fullwidth", id: "tracker_store_id", name: "tracker[store_id]" %>
       </div>
     </div>
   </div>

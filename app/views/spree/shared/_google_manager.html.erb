@@ -1,0 +1,43 @@
+<% tracker = Spree::Tracker.by_type(Spree::Store.default, 'google_manager') %>
+
+<% if tracker %>
+  <script id='solidus_trackers_google_manager'>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= tracker.analytics_id %>');
+
+    dataLayer.push({
+      'event': 'PageView',
+      'controller': '<%= params[:controller] %>',
+      'page': '<%= params[:action] %>'
+    });
+
+    <% if @order && order_just_completed?(@order) %>
+      dataLayer.push({
+        'ecommerce': {
+          'purchase': {
+            'actionField': {
+              'id': '<%= @order.number%>', // Transaction ID. Required for purchases and refunds.
+              'affiliation': '<%= @order.store.name %>',
+              'revenue': '<%= @order.total.to_f %>', // Total transaction value (incl. tax and shipping)
+              'tax': '<%= @order.included_tax_total.to_f %>',
+              'shipping': '<%= @order.shipment_total.to_f %>',
+              'coupon': '<%= @order.coupon_code %>'
+            },
+            'products': <%= raw(@order.line_items.map do |li|
+              {
+                'name': li.name,
+                'id': li.id,
+                'price': li.price.to_f,
+                'variant': li.variant.options_text,
+                'quantity': li.quantity
+              }
+            end.to_json) %>
+          }
+        }
+      });
+    <% end %>
+  </script>
+<% end %>
