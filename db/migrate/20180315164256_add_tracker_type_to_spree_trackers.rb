@@ -1,4 +1,4 @@
-class AddTrackerTypeToSpreeTrackers < SolidusSupport::Migration[4.2][5.0]
+class AddTrackerTypeToSpreeTrackers < SolidusSupport::Migration[4.2]
   def up
     add_column :spree_trackers, :tracker_type, :string
   end

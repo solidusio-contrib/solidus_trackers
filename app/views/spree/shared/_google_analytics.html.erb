@@ -1,4 +1,4 @@
-<% trackers = Spree::Tracker.current(Spree::Store.default, 'analytics') %>
+<% trackers = Spree::Tracker.current(type: 'analytics') %>
 
 <% if trackers.any? %>
   <% trackers.each do |tracker| %>

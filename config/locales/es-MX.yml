@@ -1,0 +1,6 @@
+es-MX:
+  spree:
+    admin:
+      tab:
+        trackers: Analizadores de Analytics
+      trackers: Analizadores de Analytics

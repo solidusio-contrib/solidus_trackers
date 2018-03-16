@@ -1,4 +1,4 @@
-class RemoveEnvironmentToSpreeTrackers < SolidusSupport::Migration[4.2][5.0]
+class RemoveEnvironmentToSpreeTrackers < SolidusSupport::Migration[4.2]
   def up
     remove_column :spree_trackers, :environment
   end

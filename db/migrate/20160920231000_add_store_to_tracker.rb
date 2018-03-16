@@ -1,5 +1,5 @@
-class AddStoreToTracker < SolidusSupport::Migration[4.2][5.0]
-  def self.up
+class AddStoreToTracker < SolidusSupport::Migration[4.2]
+  def up
     if data_source_exists?('spree_trackers')
       change_table :spree_trackers do |t|
         t.references :store
@@ -7,7 +7,7 @@ class AddStoreToTracker < SolidusSupport::Migration[4.2][5.0]
     end
   end
 
-  def self.down
+  def down
     if data_source_exists?('spree_trackers')
       change_table :spree_trackers do |t|
         t.remove :store_id
