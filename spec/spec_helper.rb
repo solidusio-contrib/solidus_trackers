@@ -13,22 +13,30 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
+begin
+  require File.expand_path('../dummy/config/environment', __FILE__)
+rescue LoadError
+  puts 'Could not load dummy application. Please ensure you have run `bundle exec rake test_app`'
+  exit
+end
 
 require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 # Requires factories and other useful helpers defined in spree_core.
+require 'spree/testing_support/factories'
+require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
-require 'spree/testing_support/factories'
-require 'spree/testing_support/url_helpers'
 
 require 'cancan/matchers'
 
@@ -48,6 +56,14 @@ RSpec.configure do |config|
   # visit spree.admin_path
   # current_path.should eql(spree.products_path)
   config.include Spree::TestingSupport::UrlHelpers
+  config.include Spree::TestingSupport::ControllerRequests, type: :controller
+  config.include FactoryBot::Syntax::Methods
+
+  Capybara.register_driver(:poltergeist) do |app|
+    Capybara::Poltergeist::Driver.new app, timeout: 90
+  end
+  Capybara.javascript_driver = :poltergeist
+  Capybara.default_max_wait_time = 10
 
   # == Mock Framework
   #

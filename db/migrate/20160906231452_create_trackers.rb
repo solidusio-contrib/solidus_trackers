@@ -1,4 +1,4 @@
-class CreateTrackers < SolidusSupport::Migration[4.2][5.0]
+class CreateTrackers < SolidusSupport::Migration[4.2]
   def up
     unless data_source_exists?("spree_trackers")
       create_table :spree_trackers do |t|
@@ -8,6 +8,12 @@ class CreateTrackers < SolidusSupport::Migration[4.2][5.0]
 
         t.timestamps
       end
+    end
+  end
+
+  def down
+    if data_source_exists?('spree_trackers')
+      drop_table :spree_trackers
     end
   end
 end

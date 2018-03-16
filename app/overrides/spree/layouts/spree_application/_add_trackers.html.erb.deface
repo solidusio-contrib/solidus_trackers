@@ -1,0 +1,4 @@
+<!-- insert_bottom '[data-hook=body]' -->
+
+<%= render partial: 'spree/shared/google_analytics' %>
+<%= render partial: 'spree/shared/google_manager' %>
