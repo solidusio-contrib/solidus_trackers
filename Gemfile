@@ -10,7 +10,7 @@ elsif branch >= "v2.0"
   gem 'rails', '~> 5.0.0' # HACK: broken bundler dependency resolution
 end
 gem 'pg', '~> 0.21'
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.10'
 
 # Provides basic authentication functionality for testing parts of your engine
 gem 'solidus_auth_devise', '~> 1.0'
