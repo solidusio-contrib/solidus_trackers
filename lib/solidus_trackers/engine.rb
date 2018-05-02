@@ -11,7 +11,7 @@ module SolidusTrackers
       g.test_framework :rspec
     end
 
-    initializer 'solidus_trackers.environment', before: :load_config_initializers do |app|
+    initializer 'solidus_trackers.environment', before: :load_config_initializers do
       SolidusTrackers::Config = SolidusTrackers::Configuration.new
     end
 
