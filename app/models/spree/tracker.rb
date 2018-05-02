@@ -1,6 +1,8 @@
 class Spree::Tracker < ActiveRecord::Base
   belongs_to :store
 
+  validates :tracker_type, presence: true
+
   def self.current(store = nil, type = 'analytics')
     return if !store
     if store.is_a?(Spree::Store)
