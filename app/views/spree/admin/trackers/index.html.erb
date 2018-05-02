@@ -1,7 +1,7 @@
 <%= render 'spree/admin/shared/general_tabs' %>
 
-<% admin_breadcrumb(I18n.t('spree.settings')) %>
-<% admin_breadcrumb(I18n.t('spree.general_settings')) %>
+<% admin_breadcrumb(t('spree.settings')) %>
+<% admin_breadcrumb(t('spree.general_settings')) %>
 <% admin_breadcrumb(plural_resource_name(Spree::Tracker)) %>
 
 <% content_for :page_actions do %>
@@ -36,9 +36,9 @@
       <% @trackers.each do |tracker|%>
         <tr id='<%= spree_dom_id tracker %>'' data-hook='admin_trackers_index_rows' class='<%= cycle('odd', 'even')%>'>
           <td><%= tracker.analytics_id %></td>
-          <td><%= tracker.tracker_type.capitalize %></td>
-          <td class='align-center'><%= tracker.active ? t('spree.say_yes') : t('spree.say_no') %></td>
-          <td><%= tracker.store.name %></td>
+          <td><%= tracker.tracker_type.try(:capitalize) %></td>
+          <td class='align-center'><%= tracker.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
+          <td><%= tracker.store.try(:name) %></td>
           <td class="actions">
             <% if can?(:update, tracker) %>
               <%= link_to_edit tracker, :no_text => true %>

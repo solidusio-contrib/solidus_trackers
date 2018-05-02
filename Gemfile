@@ -22,6 +22,12 @@ group :test do
   else
     gem 'rails_test_params_backport'
   end
+
+  if branch < 'v2.5'
+    gem 'factory_bot', '4.10.0'
+  else
+    gem 'factory_bot', '> 4.10.0'
+  end
 end
 
 group :development, :test do
