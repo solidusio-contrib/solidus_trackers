@@ -1,13 +1,14 @@
 <div class="container">
   <div data-hook="admin_tracker_form_fields" class="row">
-    <div class="col-md-3">
-      <div data-hook="analytics_id" class="field">
+    <div class="col-5">
+      <%= f.field_container :analytics_id do %>
         <%= f.label :analytics_id %>
-        <%= f.text_field :analytics_id, :class => 'fullwidth' %>
-      </div>
+        <%= f.text_field :analytics_id, class: 'fullwidth' %>
+      <% end %>
     </div>
-    <div class="col-md-3">
-      <div data-hook="active" class="field">
+
+     <div class="col-5">
+      <%= f.field_container :active do %>
         <%= f.label :active %>
         <ul>
           <li>
@@ -19,14 +20,13 @@
             <%= label_tag :tracker_active_false, Spree.t(:say_no) %>
           </li>
         </ul>
-      </div>
+      <% end %>
     </div>
-    <div class="col-md-3">
-      <div data-hook="store_select" class="field">
+
+    <div class="col-5">
+      <%= f.field_container :store_selector do %>
         <%= f.label :store %>
-        <div class="clear"></div>
-        <%= collection_select(:tracker, :store_id, Spree::Store.all, :id, :name, {}) %>
-      </div>
+        <%= collection_select(:tracker, :store_id, Spree::Store.all, :id, :name, {}, class: 'custom-select fullwidth') %>
+      <% end %>
     </div>
   </div>
-</div>

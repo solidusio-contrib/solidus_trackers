@@ -5,7 +5,6 @@
 <% admin_breadcrumb(link_to plural_resource_name(Spree::Tracker), spree.admin_trackers_path) %>
 <% admin_breadcrumb(@tracker.analytics_id) %>
 
-
 <% content_for :page_actions do %>
 <% end %>
 
@@ -14,6 +13,10 @@
 <%= form_for [:admin, @tracker] do |f| %>
   <fieldset class="no-border-top">
     <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+
+    <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <%= button_tag t('spree.actions.update'), :class => 'btn btn-primary' %>
+      <%= link_to t('spree.actions.cancel'), collection_url, :class => 'btn btn-secondary' %>
+    </div>
   </fieldset>
 <% end %>
