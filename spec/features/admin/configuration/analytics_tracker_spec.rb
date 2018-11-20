@@ -19,13 +19,13 @@ describe "Analytics Tracker", type: :feature do
     it "should have the right tabular values displayed" do
       within_row(1) do
         expect(column_text(1)).to eq("A100")
-        expect(column_text(2)).to eq("Analytics")
+        expect(column_text(2)).to eq("Google Analytics")
         expect(column_text(3)).to eq("Yes")
       end
 
       within_row(2) do
         expect(column_text(1)).to eq("A100")
-        expect(column_text(2)).to eq("Analytics")
+        expect(column_text(2)).to eq("Google Analytics")
         expect(column_text(3)).to eq("Yes")
       end
     end
@@ -48,7 +48,7 @@ describe "Analytics Tracker", type: :feature do
       expect(page).to have_content("successfully created!")
       within_row(1) do
         expect(column_text(1)).to eq("A100")
-        expect(column_text(2)).to eq("Analytics")
+        expect(column_text(2)).to eq("Google Analytics")
         expect(column_text(3)).to eq("Yes")
       end
     end
@@ -59,7 +59,7 @@ describe "Analytics Tracker", type: :feature do
       create(:tracker, store: store)
 
       visit spree.root_path
-      expect(page).to have_css('#solidus_trackers_analytics', visible: false)
+      expect(page).to have_css('#solidus_trackers_google_analytics', visible: false)
     end
   end
 end

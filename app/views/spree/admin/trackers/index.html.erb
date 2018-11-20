@@ -36,7 +36,7 @@
       <% @trackers.each do |tracker|%>
         <tr id='<%= spree_dom_id tracker %>'' data-hook='admin_trackers_index_rows' class='<%= cycle('odd', 'even')%>'>
           <td><%= tracker.analytics_id %></td>
-          <td><%= tracker.tracker_type.try(:capitalize) %></td>
+          <td><%= display_tracker_type(tracker) %></td>
           <td class='align-center'><%= tracker.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
           <td><%= tracker.store.try(:name) %></td>
           <td class="actions">
