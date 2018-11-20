@@ -17,7 +17,9 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   solidus_version = ['>= 2.0', '< 3']
-  s.add_dependency 'solidus_core', solidus_version
+  s.add_dependency 'solidus', solidus_version
+  s.add_dependency 'solidus_support'
+  s.add_dependency 'deface'
 
   s.add_development_dependency 'capybara', '~> 2.18'
   s.add_development_dependency 'poltergeist'
