@@ -20,13 +20,13 @@ describe "Analytics Tracker", type: :feature do
       within_row(1) do
         expect(column_text(1)).to eq("A100")
         expect(column_text(2)).to eq("Google Analytics")
-        expect(column_text(3)).to eq("Yes")
+        expect(column_text(3)).to eq("Active")
       end
 
       within_row(2) do
         expect(column_text(1)).to eq("A100")
         expect(column_text(2)).to eq("Google Analytics")
-        expect(column_text(3)).to eq("Yes")
+        expect(column_text(3)).to eq("Active")
       end
     end
   end
@@ -49,7 +49,7 @@ describe "Analytics Tracker", type: :feature do
       within_row(1) do
         expect(column_text(1)).to eq("A100")
         expect(column_text(2)).to eq("Google Analytics")
-        expect(column_text(3)).to eq("Yes")
+        expect(column_text(3)).to eq("Active")
       end
     end
   end
