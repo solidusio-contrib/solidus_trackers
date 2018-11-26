@@ -1,4 +1,4 @@
-<% tracker = Spree::Tracker.by_type(store: Spree::Store.default, type: 'google_analytics') %>
+<% tracker = Spree::Tracker.by_type(current_store, 'google_analytics') %>
 
 <% if tracker %>
   <script id='solidus_trackers_google_analytics'>

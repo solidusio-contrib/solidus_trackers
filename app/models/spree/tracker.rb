@@ -23,7 +23,7 @@ class Spree::Tracker < ActiveRecord::Base
     deprecate current_tracker: :current, deprecator: Spree::Deprecation
   end
 
-  def self.by_type(store: Spree::Store.default, type: 'google_analytics')
+  def self.by_type(store = nil, type = 'google_analytics')
     return if !store
 
     Spree::Tracker.where(active: true,
