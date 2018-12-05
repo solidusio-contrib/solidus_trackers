@@ -1,32 +1,48 @@
-<div class="container">
-  <div data-hook="admin_tracker_form_fields" class="row">
-    <div class="col-5">
+<div class="container" data-hook="admin_tracker_form_fields">
+  <div class="row">
+    <div class="col-3">
       <%= f.field_container :analytics_id do %>
-        <%= f.label :analytics_id %>
-        <%= f.text_field :analytics_id, class: 'fullwidth' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, :class => 'fullwidth' %>
       <% end %>
     </div>
 
-     <div class="col-5">
+    <div class="col-3">
+      <%= f.field_container :active do %>
+        <%= f.label :analytics_id %>
+        <%= f.text_field :analytics_id, :class => 'fullwidth' %>
+      <% end %>
+    </div>
+
+    <div class="col-2">
       <%= f.field_container :active do %>
         <%= f.label :active %>
         <ul>
           <li>
-            <%= radio_button(:tracker, :active, true) %>
+            <%= radio_button :tracker, :active, true  %>
             <%= label_tag :tracker_active_true, Spree.t(:say_yes) %>
           </li>
           <li>
-            <%= radio_button(:tracker, :active, false) %>
+            <%= radio_button :tracker, :active, false %>
             <%= label_tag :tracker_active_false, Spree.t(:say_no) %>
           </li>
         </ul>
       <% end %>
     </div>
 
-    <div class="col-5">
-      <%= f.field_container :store_selector do %>
+    <div class="col-2">
+      <%= f.field_container :store do %>
         <%= f.label :store %>
-        <%= collection_select(:tracker, :store_id, Spree::Store.all, :id, :name, {}, class: 'custom-select fullwidth') %>
+        <%= collection_select :tracker, :store_id, Spree::Store.all, :id, :name, {}, :class => 'fullwidth' %>
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-10">
+      <%= f.field_container :script do %>
+        <%= f.text_area :script, rows: 20, :class => 'fullwidth' %>
+      <% end %>
+    </div>
+  </div>
+</div>

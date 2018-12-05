@@ -18,14 +18,16 @@
 <% if @trackers.any? %>
   <table class="index">
     <colgroup>
-      <col style="width: 35%">
-      <col style="width: 10%">
       <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 10%">
       <col style="width: 15%">
     </colgroup>
 
     <thead>
       <tr data-hook="admin_trackers_index_headers">
+        <th><%= Spree::Tracker.human_attribute_name(:name) %></th>
         <th><%= Spree::Tracker.human_attribute_name(:analytics_id) %></th>
         <th><%= Spree::Tracker.human_attribute_name(:active) %></th>
         <th><%= Spree.t(:store) %></th>
@@ -35,9 +37,8 @@
 
     <tbody>
       <% @trackers.each do |tracker|%>
-        <tr id="<%= spree_dom_id tracker %>"
-            data-hook="admin_trackers_index_rows"
-            class="<%= cycle("odd", "even")%>">
+        <tr id="<%= spree_dom_id tracker %>" data-hook="admin_trackers_index_rows" class="<%= cycle("odd", "even")%>">
+          <td><%= tracker.name %></td>
           <td><%= tracker.analytics_id %></td>
           <td><%= tracker.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
           <td><%= tracker.store.name %></td>
