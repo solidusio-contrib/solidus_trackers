@@ -1,13 +1,13 @@
 <%= render 'spree/admin/shared/general_tabs' %>
 
-<% admin_breadcrumb(Spree.t(:settings)) %>
-<% admin_breadcrumb(Spree.t(:general_settings)) %>
+<% admin_breadcrumb(I18n.t('spree.settings')) %>
+<% admin_breadcrumb(I18n.t('spree.general_settings')) %>
 <% admin_breadcrumb(plural_resource_name(Spree::Tracker)) %>
 
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::Tracker) %>
     <li>
-      <%= button_link_to Spree.t(:new_tracker), new_object_url, :id => 'admin_new_tracker_link' %>
+      <%= link_to I18n.t('spree.new_tracker'), new_object_url, :id => 'admin_new_tracker_link' %>
     </li>
   <% end %>
 <% end %>
@@ -24,7 +24,7 @@
       <tr data-hook="admin_trackers_index_headers">
         <th><%= Spree::Tracker.human_attribute_name(:analytics_id) %></th>
         <th><%= Spree::Tracker.human_attribute_name(:active) %></th>
-        <th><%= Spree.t(:store) %></th>
+        <th><%= I18n.t('spree.store') %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -32,7 +32,7 @@
       <% @trackers.each do |tracker|%>
         <tr id="<%= spree_dom_id tracker %>" data-hook="admin_trackers_index_rows" class="<%= cycle('odd', 'even')%>">
           <td class="align-center"><%= tracker.analytics_id %></td>
-          <td class="align-center"><%= tracker.active ? Spree.t(:say_yes) : Spree.t(:say_no) %></td>
+          <td class="align-center"><%= tracker.active ? I18n.t('spree.say_yes') : I18n.t('spree.say_no') %></td>
           <td><%= tracker.store.name %></td>
           <td class="actions">
             <% if can?(:update, tracker) %>

@@ -12,11 +12,11 @@
         <ul>
           <li>
             <%= radio_button(:tracker, :active, true) %>
-            <%= label_tag :tracker_active_true, Spree.t(:say_yes) %>
+            <%= label_tag :tracker_active_true, I18n.t('spree.say_yes') %>
           </li>
           <li>
             <%= radio_button(:tracker, :active, false) %>
-            <%= label_tag :tracker_active_false, Spree.t(:say_no) %>
+            <%= label_tag :tracker_active_false, I18n.t('spree.say_no') %>
           </li>
         </ul>
       </div>
