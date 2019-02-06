@@ -1,6 +1,8 @@
 class Spree::Tracker < ActiveRecord::Base
   belongs_to :store
 
+  validates :tracker_type, presence: true
+
   def self.current(store = nil)
     return if !store
     if store.is_a?(Spree::Store)
@@ -16,5 +18,16 @@ class Spree::Tracker < ActiveRecord::Base
         store, "%#{store}%"
       ).first
     end
+  end
+  class << self
+    deprecate current_tracker: :current, deprecator: Spree::Deprecation
+  end
+
+  def self.by_type(store = nil, type = 'google_analytics')
+    return if !store
+
+    Spree::Tracker.where(active: true,
+                         store_id: store,
+                         tracker_type: type).first
   end
 end
