@@ -1,7 +1,7 @@
 <%= render 'spree/admin/shared/general_tabs' %>
 
-<% admin_breadcrumb(I18n.t('spree.settings')) %>
-<% admin_breadcrumb(I18n.t('spree.general_settings')) %>
+<% admin_breadcrumb(t('spree.settings')) %>
+<% admin_breadcrumb(t('spree.general_settings')) %>
 <% admin_breadcrumb(link_to plural_resource_name(Spree::Tracker), spree.admin_trackers_path) %>
 <% admin_breadcrumb(@tracker.analytics_id) %>
 
