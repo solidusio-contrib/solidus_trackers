@@ -1,7 +1,7 @@
 Solidus Trackers
 ==============
 
-[![Build Status](https://travis-ci.org/solidusio-contrib/solidus_trackers.svg?branch=master)](https://travis-ci.org/solidusio-contrib/solidus_trackers)
+[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_trackers.svg?style=svg)](https://circleci.com/gh/solidusio-contrib/solidus_trackers)
 
 A simple tracker implementation for Solidus.
 - Allows creation of trackers from the admin configuration panel
