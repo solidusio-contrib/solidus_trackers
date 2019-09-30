@@ -25,6 +25,6 @@ else
 end
 
 # Provides basic authentication functionality for testing parts of your engine
-gem 'solidus_auth_devise', '~> 1.0'
+gem 'solidus_auth_devise', '~> 2.3'
 
 gemspec
